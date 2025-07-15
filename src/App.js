@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Authform from './Components/Authform';
+import ForgotPassword from'./Components/forgotoassword';
+import  Register from './Components/register';
+import illustration from './assets/girlwithlaptop.jpg'; // add your image here
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className="login-wrapper">
+      <div className="form-side">
+      <Routes>
+            <Route path="/" element={<Authform />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+      </div>
+      <div className="image-side">
+        <img src={illustration} alt="Login Illustration" />
+      </div>
     </div>
+    </Router>
   );
 }
 
